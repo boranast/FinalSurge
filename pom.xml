@@ -5,12 +5,12 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>groupId</groupId>
-    <artifactId>FitDay</artifactId>
+    <artifactId>FinalSurge</artifactId>
     <version>1.0-SNAPSHOT</version>
 
     <properties>
         <testng.version>7.4.0</testng.version>
-        <selenium.version>4.1.2</selenium.version>
+        <selenium.version>4.1.4</selenium.version>
         <webdrivermanager.version>5.1.0</webdrivermanager.version>
         <maven.compiler.source>11</maven.compiler.source>
         <maven.compiler.target>11</maven.compiler.target>
