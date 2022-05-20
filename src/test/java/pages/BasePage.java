@@ -10,7 +10,7 @@ import java.time.Duration;
 public class BasePage {
     WebDriver driver;
     WebDriverWait wait;
-    String baseUrl = "https://log.finalsurge.com/login.cshtml";
+    String baseUrl = "https://log.finalsurge.com/";
 
     public BasePage(WebDriver driver) {
         this.driver = driver;
