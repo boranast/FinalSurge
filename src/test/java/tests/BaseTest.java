@@ -19,8 +19,8 @@ public class BaseTest {
     BasePage basePage;
     WorkoutPage workoutPage;
     String baseUrl = "https://www.fitday.com/fitness/Login.html";
-    public static final String USER = "";
-    public static final String PASSWORD = "";
+    public static final String USER = "qa17_3@mailinator.com";
+    public static final String PASSWORD = "Password01";
 
     @Parameters({"browser"})
     @BeforeMethod(description = "Opening browser")
