@@ -8,7 +8,7 @@ import static org.testng.Assert.*;
 
 public class WorkoutTest extends BaseTest{
 
-    @Test(description = "Adding a running workout", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a running workout with correct data", retryAnalyzer = Retry.class)
     public void addRunWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -33,7 +33,7 @@ public class WorkoutTest extends BaseTest{
 
     }
 
-    @Test(description = "Adding a swimming workout", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a swimming workout with correct data", retryAnalyzer = Retry.class)
     public void addSwimWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -64,7 +64,7 @@ public class WorkoutTest extends BaseTest{
 
     }
 
-    @Test(description = "Adding a Cross Training workout", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a Cross Training workout with correct data", retryAnalyzer = Retry.class)
     public void addCrossTrainingWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -94,7 +94,7 @@ public class WorkoutTest extends BaseTest{
 
     }
 
-    @Test(description = "Adding a walking workout", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a walking workout with correct data", retryAnalyzer = Retry.class)
     public void addWalkWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -133,7 +133,7 @@ public class WorkoutTest extends BaseTest{
 
     }
 
-    @Test(description = "Adding a rest day", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a rest day with correct data", retryAnalyzer = Retry.class)
     public void addRestDayWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -149,7 +149,7 @@ public class WorkoutTest extends BaseTest{
 
     }
 
-    @Test(description = "Adding a Strength Training workout", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a Strength Training workout with correct data", retryAnalyzer = Retry.class)
     public void addStrengthTrainingWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -172,7 +172,7 @@ public class WorkoutTest extends BaseTest{
 
     }
 
-    @Test(description = "Adding a Recovery ", retryAnalyzer = Retry.class)
+    @Test(description = "Adding a Recovery with correct data", retryAnalyzer = Retry.class)
     public void addRecoveryWorkout() {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
