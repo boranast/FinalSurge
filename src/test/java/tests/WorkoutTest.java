@@ -188,4 +188,19 @@ public class WorkoutTest extends BaseTest{
 
     }
 
+    @Test(description = "Adding a Other Workout with correct data", retryAnalyzer = Retry.class)
+    public void addOtherWorkout() {
+        loginPage.open();
+        loginPage.login(USER, PASSWORD);
+        workoutPage.open();
+        driver.findElement(By.cssSelector("[data-code=other]")).click();
+        driver.findElement(By.id("WorkoutDate")).clear();
+        driver.findElement(By.id("WorkoutDate")).sendKeys("5/29/2022");
+        driver.findElement(By.id("WorkoutTime")).sendKeys("19:00");
+        driver.findElement(By.id("Name")).sendKeys("Stretching");
+        driver.findElement(By.id("Desc")).sendKeys("Stretching");
+
+        driver.findElement(By.id("saveButton")).click();
+
+    }
 }
