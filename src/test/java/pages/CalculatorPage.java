@@ -9,10 +9,12 @@ public class CalculatorPage extends BasePage{
         super(driver);
     }
 
+
     @Step("Opening calculator")
     public void open() {
         driver.get(baseUrl + "Calendar.cshtml");
         driver.findElement(By.cssSelector("[data-reveal-id=OtherCalc]")).click();
+        driver.switchTo().frame("OtherCalciFrame");
     }
 
     @Step("Choosing pace calculator")
