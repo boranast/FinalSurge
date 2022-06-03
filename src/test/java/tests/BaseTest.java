@@ -14,11 +14,11 @@ import java.time.Duration;
 @Listeners(TestListener.class)
 public class BaseTest {
 
+    CalculatorPage calculatorPage;
     LoginPage loginPage;
     WebDriver driver;
     BasePage basePage;
     WorkoutPage workoutPage;
-    String baseUrl = "https://www.fitday.com/fitness/Login.html";
     public static final String USER = "qa17_3@mailinator.com";
     public static final String PASSWORD = "Password01";
 
@@ -42,6 +42,7 @@ public class BaseTest {
         loginPage = new LoginPage(driver);
         basePage = new BasePage(driver);
         workoutPage = new WorkoutPage(driver);
+        calculatorPage = new CalculatorPage(driver);
 
     }
 
