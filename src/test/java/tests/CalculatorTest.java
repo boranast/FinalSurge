@@ -12,7 +12,7 @@ public class CalculatorTest extends BaseTest{
         calculatorPage.paceCalc();
         calculatorPage.distanceInput("2000");
         calculatorPage.timeInput("2", "03", "23");
-         calculatorPage.saveButton();
+        calculatorPage.saveButton();
         calculatorPage.getPace();
     }
 
@@ -21,6 +21,12 @@ public class CalculatorTest extends BaseTest{
         loginPage.open();
         loginPage.login(USER, PASSWORD);
         calculatorPage.open();
-        calculatorPage.ageInput("23");
+        calculatorPage.weightInput("48");
+        calculatorPage.heightInput("168");
+        calculatorPage.ageInput("20");
+        calculatorPage.femaleGender();
+        calculatorPage.runDistance("200");
+        calculatorPage.saveButton();
+        calculatorPage.getCaloricNeeds();
     }
 }

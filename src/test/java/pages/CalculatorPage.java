@@ -42,19 +42,42 @@ public class CalculatorPage extends BasePage{
         return driver.findElement(By.xpath("//*[@class='w-box-header']//*[text()='Pace Chart']")).getText();
     }
 
+    @Step("Search for a pace")
+    public String getCaloricNeeds() {
+        return driver.findElement(By.xpath("//*[@class='w-box-header']//*[text()='Daily Caloric Needs Calculator']")).getText();
+    }
+
     @Step("Filling weight input")
     public void weightInput(String weight) {
          driver.findElement(By.id("Weight")).sendKeys(weight);
+         driver.findElement(By.id("optionsRadios4")).click();
     }
 
     @Step("Filling height input")
     public void heightInput(String height) {
         driver.findElement(By.id("HeightInchCent")).sendKeys(height);
+        driver.findElement(By.id("optionsRadios4")).click();
     }
 
     @Step("Filling age input")
     public void ageInput(String age) {
         driver.findElement(By.id("Age")).sendKeys(age);
+    }
+
+    @Step("Сhoosing female gender")
+    public void femaleGender() {
+        driver.findElement(By.id("optionsRadios6")).click();
+    }
+
+    @Step("Сhoosing male gender")
+    public void maleGender() {
+        driver.findElement(By.id("optionsRadios5")).click();
+    }
+
+    @Step("Filling run distance input")
+    public void runDistance(String distance) {
+        driver.findElement(By.id("RunDist")).sendKeys();
+        driver.findElement(By.id("optionsRadios8")).click();
     }
 
 
