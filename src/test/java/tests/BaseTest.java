@@ -4,6 +4,7 @@ import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.edge.EdgeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.testng.ITestContext;
 import org.testng.annotations.*;
@@ -30,14 +31,14 @@ public class BaseTest {
             ChromeOptions options = new ChromeOptions();
             //options.addArguments("--headless");
             driver = new ChromeDriver(options);
-        } else if (browser.equalsIgnoreCase("firefox")) {
-            WebDriverManager.firefoxdriver().setup();
-            driver = new FirefoxDriver();
+        } else if (browser.equalsIgnoreCase("Microsoft Edge")) {
+            WebDriverManager.edgedriver().setup();
+            driver = new EdgeDriver();
         }
 
         testContext.setAttribute("driver", driver);
         driver.manage().window().maximize();
-        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(10));
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(30));
 
         loginPage = new LoginPage(driver);
         basePage = new BasePage(driver);
