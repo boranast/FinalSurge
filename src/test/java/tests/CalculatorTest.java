@@ -40,7 +40,7 @@ public class CalculatorTest extends BaseTest {
         return new Object[][]{
                 {"", "", "", "", "×\n" + "Please fix the following errors:\n" +
                         "*Please enter an Integer value for Age.\n" + "*Please enter a value for Weight.\n" +
-                    "*Please enter a value for Run Distance.\n"},
+                        "*Please enter a value for Run Distance.\n"},
                 {"48", "", "", "", "×\n" + "Please fix the following errors:\n" +
                         "*Please enter an Integer value for Age.\n" +
                         "*Please enter a value for Run Distance.\n"},
@@ -61,7 +61,7 @@ public class CalculatorTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "Incoming data for negative tests in the Caloric Needs calculator")
+    @Test(dataProvider = "Incoming data for negative tests in the Caloric Needs calculator", retryAnalyzer = Retry.class)
     public void inputsForCaloricNeedsCalcShouldBeRequired(String weight, String height, String age, String distance, String error) {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -90,7 +90,7 @@ public class CalculatorTest extends BaseTest {
         };
     }
 
-    @Test(dataProvider = "Incoming data for negative tests in the Pace calculator")
+    @Test(dataProvider = "Incoming data for negative tests in the Pace calculator", retryAnalyzer = Retry.class)
     public void inputsForPaceCalcShouldBeRequired(String distance, String hours, String minutes, String seconds, String error) {
         loginPage.open();
         loginPage.login(USER, PASSWORD);
@@ -101,6 +101,4 @@ public class CalculatorTest extends BaseTest {
         calculatorPage.saveButton();
         assertEquals(calculatorPage.getError(), error, "Wrong error message");
     }
-
-
 }
