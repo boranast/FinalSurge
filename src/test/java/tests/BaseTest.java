@@ -22,8 +22,6 @@ public class BaseTest {
     WorkoutPage workoutPage;
     AddQuickWorkoutModal addQuickWorkoutModal;
     AddQuickWorkoutListPage addQuickWorkoutListPage;
-    AddFullWorkoutModal addFullWorkoutModal;
-    AddFullWorkoutListPage addFullWorkoutListPage;
     public static final String USER = "qa17_3@mailinator.com";
     public static final String PASSWORD = "Password01";
 
@@ -50,9 +48,6 @@ public class BaseTest {
         calculatorPage = new CalculatorPage(driver);
         addQuickWorkoutListPage = new AddQuickWorkoutListPage(driver);
         addQuickWorkoutModal = new AddQuickWorkoutModal(driver);
-        addFullWorkoutListPage = new AddFullWorkoutListPage(driver);
-        addFullWorkoutModal = new AddFullWorkoutModal(driver);
-
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing Browser")
@@ -60,6 +55,5 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
-
     }
 }
