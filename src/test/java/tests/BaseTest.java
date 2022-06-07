@@ -20,6 +20,8 @@ public class BaseTest {
     WebDriver driver;
     BasePage basePage;
     WorkoutPage workoutPage;
+    AddQuickWorkoutModal addQuickWorkoutModal;
+    AddQuickWorkoutListPage addQuickWorkoutListPage;
     public static final String USER = "qa17_3@mailinator.com";
     public static final String PASSWORD = "Password01";
 
@@ -29,7 +31,7 @@ public class BaseTest {
         if (browser.equalsIgnoreCase("chrome")) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
-            //options.addArguments("--headless");
+            options.addArguments("--headless");
             driver = new ChromeDriver(options);
         } else if (browser.equalsIgnoreCase("Microsoft Edge")) {
             WebDriverManager.edgedriver().setup();
@@ -44,7 +46,8 @@ public class BaseTest {
         basePage = new BasePage(driver);
         workoutPage = new WorkoutPage(driver);
         calculatorPage = new CalculatorPage(driver);
-
+        addQuickWorkoutListPage = new AddQuickWorkoutListPage(driver);
+        addQuickWorkoutModal = new AddQuickWorkoutModal(driver);
     }
 
     @AfterMethod(alwaysRun = true, description = "Closing Browser")
@@ -52,6 +55,5 @@ public class BaseTest {
         if (driver != null) {
             driver.quit();
         }
-
     }
 }
