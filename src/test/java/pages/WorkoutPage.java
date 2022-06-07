@@ -5,9 +5,7 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.ui.Select;
 
-import static org.testng.Assert.assertTrue;
-
-public class WorkoutPage extends BasePage{
+public class WorkoutPage extends BasePage {
 
     public WorkoutPage(WebDriver driver) {
         super(driver);
@@ -18,54 +16,15 @@ public class WorkoutPage extends BasePage{
         driver.get(baseUrl + "WorkoutAdd.cshtml");
     }
 
-    @Step("Opening the run tab")
-    public void runOpen() {
-        driver.findElement(By.cssSelector("[data-code=run]")).click();
-    }
-
-    @Step("Opening the swim tab")
-    public void swimOpen() {
-        driver.findElement(By.cssSelector("[data-code=swim]")).click();
-    }
-
-    @Step("Opening the cross training tab")
-    public void crossTrainingOpen() {
-        driver.findElement(By.cssSelector("[data-code=cross-trai]")).click();
-    }
-
-    @Step("Opening the walk tab")
-    public void walkOpen() {
-        driver.findElement(By.cssSelector("[data-code=walk]")).click();
-    }
-
-    @Step("Opening the rest tab")
-    public void restOpen() {
-        driver.findElement(By.cssSelector("[data-code=rest]")).click();
-    }
-
-    @Step("Opening the strenght training tab")
-    public void strenghtTrainingOpen() {
-        driver.findElement(By.cssSelector("[data-code=strength-t]")).click();
-    }
-
-    @Step("Opening the recovery tab")
-    public void recoveryOpen() {
-        driver.findElement(By.cssSelector("[data-code=recovery]")).click();
-    }
-
-    @Step("Opening the other tab")
-    public void otherOpen() {
-        driver.findElement(By.cssSelector("[data-code=other]")).click();
+    @Step("Opening tabs")
+    public void tabOpen(String tab) {
+        driver.findElement(By.cssSelector("[data-code=" + tab + "]")).click();
     }
 
     @Step("Filling workout date input: Date - '{date}'")
     public void dateWorkout(String date) {
-        driver.findElement(By.id("WorkoutDate")).sendKeys(date);
-    }
-
-    @Step("Clining input date")
-    public void clearDateWorkout() {
         driver.findElement(By.id("WorkoutDate")).clear();
+        driver.findElement(By.id("WorkoutDate")).sendKeys(date);
     }
 
     @Step("Filling workout time input: Time - '{time}'")
@@ -86,17 +45,15 @@ public class WorkoutPage extends BasePage{
     @Step("Filling workout distance input: Distance - '{distance}'")
     public void distanceWorkout(String distance) {
         driver.findElement(By.id("Distance")).sendKeys(distance);
-        Select select1 = new Select(driver.findElement(By.id("DistType")));
-        select1.selectByVisibleText("m");
-        assertTrue(select1.getOptions().get(2).isSelected());
+        Select select = new Select(driver.findElement(By.id("DistType")));
+        select.selectByVisibleText("m");
     }
 
     @Step("Filling workout distance input: Distance - '{distance}'")
     public void distanceForCrossTrainingWorkout(String distance) {
         driver.findElement(By.id("DistanceNoInt")).sendKeys(distance);
-        Select select1 = new Select(driver.findElement(By.id("DistTypeNoInt")));
-        select1.selectByVisibleText("m");
-        assertTrue(select1.getOptions().get(2).isSelected());
+        Select select = new Select(driver.findElement(By.id("DistTypeNoInt")));
+        select.selectByVisibleText("m");
     }
 
     @Step("Filling workout duration input: Duration - '{duration}'")
@@ -129,18 +86,10 @@ public class WorkoutPage extends BasePage{
         driver.findElement(By.id("SetTime1")).sendKeys(duration);
     }
 
-    @Step("Filling  minHR input: MinHR - '{minHR}'")
-    public void minHRWorkout(String minHR) {
+    @Step("Filling HR inputs: MinHR - '{minHR}', AvgHR - '{avgHR}', MaxHR - '{maxHR}'")
+    public void HRWorkout(String minHR, String avgHR, String maxHR) {
         driver.findElement(By.id("MinHR")).sendKeys(minHR);
-    }
-
-    @Step("Filling avgHR input: AvgHR - '{avgHR}'")
-    public void avgHRWorkout(String avgHR) {
         driver.findElement(By.id("AvgHR")).sendKeys(avgHR);
-    }
-
-    @Step("Filling maxHR input: MaxHR - '{maxHR}'")
-    public void maxHRWorkout(String maxHR) {
         driver.findElement(By.id("MaxHR")).sendKeys(maxHR);
     }
 
@@ -149,89 +98,33 @@ public class WorkoutPage extends BasePage{
         driver.findElement(By.id("kCal")).sendKeys(kCal);
     }
 
-    @Step("Filling powAvg input: PowAvg - '{kCal}'")
-    public void powAvgWorkout(String powAvg) {
-    driver.findElement(By.id("PowAvg")).sendKeys(powAvg);
+    @Step("Filling pow inputs: PowAvg - '{kCal}', PowMax - '{powMax}'")
+    public void powWorkout(String powAvg, String powMax) {
+        driver.findElement(By.id("PowAvg")).sendKeys(powAvg);
+        driver.findElement(By.id("PowMax")).sendKeys(powMax);
     }
 
-    @Step("Filling powMax input: PowMax - '{powMax}'")
-    public void powMaxWorkout(String powMax) {
-    driver.findElement(By.id("PowMax")).sendKeys(powMax);
-    }
-
-    @Step("Filling cadAvg input: CadAvg - '{cadAvg}'")
-    public void cadAvgWorkout(String cadAvg) {
-    driver.findElement(By.id("CadAvg")).sendKeys(cadAvg);
-    }
-
-    @Step("Filling cadMax input: CadMax - '{cadMax}'")
-    public void cadMaxlWorkout(String cadMax) {
+    @Step("Filling cad inputs: CadAvg - '{cadAvg}', CadMax - '{cadMax}'")
+    public void cadWorkout(String cadAvg, String cadMax) {
+        driver.findElement(By.id("CadAvg")).sendKeys(cadAvg);
         driver.findElement(By.id("CadMax")).sendKeys(cadMax);
     }
 
-    @Step("Filling Elevation Gain input: Elevation Gain - '{EGain}'")
-    public void elevationGainWorkout(String elevationGain) {
+    @Step("Filling Elevation inputs: Elevation Gain - '{EGain}', Elevation Loss - '{ELoss}'")
+    public void elevationWorkout(String elevationGain, String elevationLoss) {
         driver.findElement(By.id("EGain")).sendKeys(elevationGain);
-    }
-
-    @Step("Filling Elevation Loss input: Elevation Loss - '{ELoss}'")
-    public void elevationLossWorkout(String elevationLoss) {
         driver.findElement(By.id("ELoss")).sendKeys(elevationLoss);
     }
 
-    @Step("The mark of great feelings")
-    public void feelGreat() {
-        driver.findElement(By.id("hf_great")).click();
+   @Step("The mark of feelings")
+    public void feel(String feel) {
+        driver.findElement(By.id("hf_" + feel)).click();
     }
 
-    @Step("The mark good feelings")
-    public void feelGood() {
-        driver.findElement(By.id("hf_good")).click();
-    }
-
-    @Step("The mark of normal feelings")
-    public void feelNormal() {
-        driver.findElement(By.id("hf_normal")).click();
-    }
-
-    @Step("The mark of terrible feelings")
-    public void feelTerrible() {
-        driver.findElement(By.id("hf_terrible")).click();
-    }
-
-    @Step("The mark of Perceived Effort as 'Very Light'")
-    public void perceivedEffortIsVeryLight() {
+    @Step("The mark of Perceived Effort")
+    public void perceivedEffort(String effort) {
         Select select = new Select(driver.findElement(By.id("PerEffort")));
-        select.selectByVisibleText("1 (Very Light)");
-        assertTrue(select.getOptions().get(1).isSelected());
-    }
-
-    @Step("The mark of Perceived Effort as '6 (Moderate)'")
-    public void perceivedEffortIsModerate() {
-        Select select = new Select(driver.findElement(By.id("PerEffort")));
-        select.selectByVisibleText("6 (Moderate)");
-        assertTrue(select.getOptions().get(6).isSelected());
-    }
-
-    @Step("The mark of Perceived Effort as '8 (Hard)'")
-    public void perceivedEffortIsHard() {
-        Select select = new Select(driver.findElement(By.id("PerEffort")));
-        select.selectByVisibleText("8 (Hard)");
-        assertTrue(select.getOptions().get(8).isSelected());
-    }
-
-    @Step("The mark of Perceived Effort as '9 (Very Hard)'")
-    public void perceivedEffortIsVeryHard() {
-        Select select = new Select(driver.findElement(By.id("PerEffort")));
-        select.selectByVisibleText("9 (Very Hard)");
-        assertTrue(select.getOptions().get(9).isSelected());
-    }
-
-    @Step("The mark of Perceived Effort as '10 (Max Effort)'")
-    public void perceivedEffortIsMaxEffort() {
-        Select select = new Select(driver.findElement(By.id("PerEffort")));
-        select.selectByVisibleText("10 (Max Effort)");
-        assertTrue(select.getOptions().get(10).isSelected());
+        select.selectByVisibleText(effort);
     }
 
     @Step("Save button for workout")
@@ -240,7 +133,7 @@ public class WorkoutPage extends BasePage{
     }
 
     @Step("Search for a workout")
-    public String getWorkout() {
-        return driver.findElement(By.className("activityTypeName")).getText();
+    public boolean getWorkout() {
+        return driver.findElement(By.className("dropdown-toggle")).isDisplayed();
     }
 }
